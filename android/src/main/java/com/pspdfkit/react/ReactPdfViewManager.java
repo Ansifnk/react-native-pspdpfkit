@@ -100,7 +100,7 @@ public class ReactPdfViewManager extends ViewGroupManager<PdfView> {
             FragmentActivity fragmentActivity = (FragmentActivity) reactContext.getCurrentActivity();
             PdfView pdfView = new PdfView(reactContext);
             pdfView.inject(fragmentActivity.getSupportFragmentManager(),
-                    reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher());
+            UIManagerHelper.getEventDispatcher(reactContext, pdfView.getId()));
             return pdfView;
         } else {
             throw new IllegalStateException("ReactPSPDFKitView can only be used in FragmentActivity subclasses.");
